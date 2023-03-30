@@ -7,10 +7,11 @@ session.invalidate();
 %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./common/general.css">
 <title>Insert title here</title>
 </head>
-<body>
-Sesi&oacute;n Cerrada.<br/>
-<a href="index.jsp">Volver</a>
+<body id="bb" style="background:linear-gradient(top, rgb(255, 255, 255), rgb(255, 0, 128));">
+<h1 id="hh">Ha cerrado sesion Correctamente</h1>
+<a href="index.jsp" style="color: white;">Volver</a>
 </body>
 </html>

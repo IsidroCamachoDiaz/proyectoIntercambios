@@ -14,6 +14,7 @@ try {  //AQUI VA EL CONTROL DE SESION
 beanDB db = new beanDB();
 boolean okdb = false;
 String resultado = "";
+String resultado2 = "";
 
 try {
 	db.conectarBD();
@@ -24,7 +25,7 @@ try {
 }
 if (okdb) {
 	
-		String query="SELECT J.NOMBRE,J.ESTADO FROM JUGUETES J JOIN USUARIOS U ON (J.ID_USUARIO=U.ID_USUARIO) WHERE U.CORREO='"+session.getAttribute("attributo2")+"';";
+		String query="SELECT * FROM UsuariosMasIntercambios LIMIT 10;";
 		String [][] tablares = db.resConsultaSelectA3(query);
 	if (tablares != null) {
 		resultado = "<table style='border: 1px solid black; margin: auto; border-collapse: collapse;>";
@@ -37,11 +38,26 @@ if (okdb) {
 		resultado += "</table>";
 		
 	}
-	else{
-		resultado = "<div style='color: darkred; font-weight: bold;'>NO TIENEN NINGUN JUGUETE REGISTRADO</div>";
+
+	query="SELECT * FROM UsuariosMasJuguetes LIMIT 10;";
+	tablares = db.resConsultaSelectA3(query);
+	if (tablares != null) {
+		resultado2 = "<table style='border: 1px solid black; margin: auto; border-collapse: collapse;>";
+		for (int i=0; i<tablares.length;i++) { //g es una variable tipo grupo que va recorriendo la lista
+			resultado2 += "<tr style='border: 1px solid black;'>";
+			resultado2 += "<td style='border: 1px solid black;'>" + tablares[i][0] + "</td>";
+			resultado2 += "<td style='border: 1px solid black;'>" + tablares[i][1] + "</td>";
+			resultado2 += "</tr>";
+		}
+		resultado2 += "</table>";
+		
 	}
+	
+	
+	
 	db.desconectarBD();
 }
+
 else {
 	resultado = "<div style='color: darkred; font-weight: bold;'>ERROR: No se pudo conectar con la BBDD</div>";
 }
@@ -55,14 +71,15 @@ else {
 
 </head>
 <body style="background-image: url(images/fondo2.jpg);">
-<h1><%=session.getAttribute("attributo2") %> sus Juguetes:</h1>
+<h1>Estadisticas:</h1>
 <hr/>
 <p><a href="bienvenido.jsp">Página principal</a></p>
-<p><a href="HacerIntercambio.jsp">Hacer Intercambio</a></p>
 <p><a href="cerrarsesion.jsp">Salir</a></p>
 <hr/>
+<h3>Usuarios Con Mas Intercambios</h3>
 <%=resultado %>
+<h3>Usuarios Con Mas Juguetes</h3>
+<%=resultado2 %>
 <div id="contenedor1">
 </div>
-<a href="AgregarJuguete.jsp">Agregar Juguete</a>
 </body></html>

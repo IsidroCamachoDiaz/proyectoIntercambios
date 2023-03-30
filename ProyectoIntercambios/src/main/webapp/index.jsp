@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Mi Primer Formulario</title>
 
-<link rel="stylesheet" href="common/general.css">
+<link rel="stylesheet" href="common/sesion.css">
 
 <script type="text/javascript">
 function compruebayenvia() {
@@ -45,24 +45,76 @@ function compruebaalfan(campo, evento) {
 		return true;
 	}
 }
+
+$("#password").focusin(function () {
+	  $("form").addClass("up");
+	});
+	$("#password").focusout(function () {
+	  $("form").removeClass("up");
+	});
+
+	// Panda Eye move
+	$(document).on("mousemove", function (event) {
+	  var dw = $(document).width() / 15;
+	  var dh = $(document).height() / 15;
+	  var x = event.pageX / dw;
+	  var y = event.pageY / dh;
+	  $(".eye-ball").css({
+	    width: x,
+	    height: y
+	  });
+	});
+
+	// validation
+
+	$(".btn").click(function () {
+	  $("form").addClass("wrong-entry");
+	  setTimeout(function () {
+	    $("form").removeClass("wrong-entry");
+	  }, 3000);
+	});
+
 </script>
 </head>
 <body style="background-image: url(images/fondoJuguetes.jpg);">
-
-<h1 style="color: pink;">Iniciar Sesión en la App</h1>
+<br><br>
+<div class="panda">
+  <div class="ear"></div>
+  <div class="face">
+    <div class="eye-shade"></div>
+    <div class="eye-white">
+      <div class="eye-ball"></div>
+    </div>
+    <div class="eye-shade rgt"></div>
+    <div class="eye-white rgt">
+      <div class="eye-ball"></div>
+    </div>
+    <div class="nose"></div>
+    <div class="mouth"></div>
+  </div>
+  <div class="body"> </div>
+  <div class="foot">
+    <div class="finger"></div>
+  </div>
+  <div class="foot rgt">
+    <div class="finger"></div>
+  </div>
+</div>
 <form action="./LoginAuthenticator" method="post" name="iniciosesion" id="iniciosesion">
-<table style="text-align: left; border: none;">
-<tr><td>
-<input type="hidden" name="varoculta" value="secreto"/>
-Usuario:
-	</td><td><input type="text" name="usuario" onkeypress="return compruebaalfan(this,event);" maxlength="30" value="" class="inputgris"/>
-</td></tr><tr><td>Contraseña:
-	</td><td><input type="password" name="pass" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
-</td></tr><tr><td>
-	</td><td style="text-align: center;">
-		<input type="button" name="send" value="Enviar" onclick="compruebayenvia();"/>
-</td></tr></table>
+  <div class="hand"></div>
+  <div class="hand rgt"></div>
+  <h1>Bienvenido</h1>
+  <div class="form-group">
+    <input required="required" class="form-control" name="usuario" />
+    <label class="form-label">Correo    </label>
+  </div>
+  <div class="form-group">
+    <input id="password" type="password" required="required" class="form-control" name="pass"/>
+    <label class="form-label">Contraseña</label>
+    <p class="alert">Invalid Credentials..!!</p>
+    <button class="btn">Login </button>
+  </div>
 </form>
-<a href="CreacionUsuario.jsp" style="color: pink;">Crear una cuenta</a>
+<a href="CreacionUsuario.jsp" style="color: pink; text-decoration: none;">Crear una cuenta</a>
 </body>
 </html>

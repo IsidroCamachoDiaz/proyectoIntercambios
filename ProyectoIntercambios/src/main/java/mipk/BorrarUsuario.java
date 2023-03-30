@@ -11,18 +11,14 @@ import jakarta.servlet.http.HttpSession;
 /**
  * Servlet implementation class LoginAuthenticator
  */
-public class CreacionUsuarios extends HttpServlet {
+public class BorrarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private String correo = "";
-	private String contrasenia = "";
-	private String nombre = "";
-	private String apellidos = "";
-	private String ciudad = "";
+	private String id = "";
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreacionUsuarios() {
+    public BorrarUsuario() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,25 +34,20 @@ public class CreacionUsuarios extends HttpServlet {
 		// TODO Auto-generated method stub
 		beanDB db = new beanDB();
 		HttpSession session = request.getSession();
-		String correo=request.getParameter("correo");
-		String contrasenia=request.getParameter("contrasenia");
-		String nombre=request.getParameter("nombre");
-		String apellidos=request.getParameter("apellidos");
-		String ciudad=request.getParameter("ciudad");
-		if (correo == null) correo="";
-		if (contrasenia == null) contrasenia="";
-		if (nombre == null) nombre="";
-		if (apellidos == null) apellidos="";
-		if (ciudad == null) ciudad="";
+		String id=request.getParameter("select");
+		if (id == null) id="";
+		
 		boolean ok=false;
-		
-		
-		
-		if(!correo.equals("")&&!contrasenia.equals("")&&!nombre.equals("")&&!apellidos.equals("")&&!ciudad.equals("")) {
-			String query= "INSERT INTO USUARIOS (NOMBRE,APELLIDOS,CORREO,CONTRASEÑA,CIUDAD) VALUES ('"+nombre+"','"+apellidos+"','"+correo+"','"+contrasenia+"','"+ciudad+"');";
+			
+		if(!id.equals("")) {
+			String query2= "DELETE FROM INTERCAMBIOS WHERE ID_USUARIO_1="+id+" OR ID_USUARIO_2="+id+";";
+			String query3= "DELETE FROM JUGUETES WHERE ID_USUARIO="+id+";";
+			String query= "DELETE FROM USUARIOS WHERE ID_USUARIO="+id+";";
 			ok=true;
 			try {
 			db.conectarBD();
+			db.insert(query2);
+			db.insert(query3);
 			db.insert(query);
 			}catch(Exception e) {
 			}

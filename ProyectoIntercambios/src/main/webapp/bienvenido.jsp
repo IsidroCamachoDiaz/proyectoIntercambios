@@ -18,6 +18,7 @@ try {  //AQUI VA EL CONTROL DE SESION
 String rol="Usuario";
 if(usuario.equals("admin")||usuario.equals("prueba"))
 	rol="Administrador";
+
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Bienvenido</title>
@@ -25,7 +26,7 @@ if(usuario.equals("admin")||usuario.equals("prueba"))
 <link rel="stylesheet" href="common/general.css">
 
 </head>
-<body style="background-image: url(images/fondoJuguetes3.jpg); background-repeat: no-repeat; background-size: cover;">
+<body style="background-image: url(images/fondoJuguetes3.jpg);background-size: cover;">
 <h1>Bienvenido <%=usuario %></h1>
 Sesión iniciada como <%=rol %>
 <hr/>
@@ -34,6 +35,8 @@ Sesión iniciada como <%=rol %>
 <%if(rol.equals("Administrador")){
 	%><br><a href="AgregarPuntos.jsp">Agregar Puntos De Intercambio</a>
 	<br><a href="AgregarTipo.jsp">Agregar Tipos de Juguetes</a>
+	<br><a href="BorrarUsuario.jsp">Borrar Usuarios</a>
+	<br><a href="Estadisticas.jsp">Estadisticas</a>
 <%}
 %>
 <br/><br/><a href="cerrarsesion.jsp">Salir</a>

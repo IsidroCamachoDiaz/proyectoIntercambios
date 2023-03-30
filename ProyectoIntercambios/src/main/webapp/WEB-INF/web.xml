@@ -38,6 +38,32 @@
 		<servlet-class>mipk.AgregarTipo</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<description>
+		</description>
+		<display-name>HacerIntercambio</display-name>
+		<servlet-name>HacerIntercambio</servlet-name>
+		<servlet-class>mipk.HacerIntercambio</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<description>
+		</description>
+		<display-name>BorrarUsuario</display-name>
+		<servlet-name>BorrarUsuario</servlet-name>
+		<servlet-class>mipk.BorrarUsuario</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>BorrarUsuario</servlet-name>
+		<url-pattern>/BorrarUsuario</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>HacerIntercambio</servlet-name>
+		<url-pattern>/HacerIntercambio</url-pattern>
+	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>AgregarTipo</servlet-name>
 		<url-pattern>/AgregarTipo</url-pattern>
