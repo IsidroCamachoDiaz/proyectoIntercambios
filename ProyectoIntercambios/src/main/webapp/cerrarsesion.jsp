@@ -10,8 +10,8 @@ session.invalidate();
 <link rel="stylesheet" href="./common/general.css">
 <title>Insert title here</title>
 </head>
-<body id="bb" style="background:linear-gradient(top, rgb(255, 255, 255), rgb(255, 0, 128));">
+<body id="bb" style="background-image: url(images/fondoJuguetes.jpg);">
 <h1 id="hh">Ha cerrado sesion Correctamente</h1>
-<a href="index.jsp" style="color: white;">Volver</a>
+<a href="index.jsp">Volver</a>
 </body>
 </html>

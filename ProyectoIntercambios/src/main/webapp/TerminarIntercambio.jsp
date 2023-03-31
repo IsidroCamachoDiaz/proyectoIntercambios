@@ -6,7 +6,7 @@
 beanDB db = new beanDB();
 boolean okdb = false;
 String resultado = "";
-String [][] tablares={};
+String [][] tablares= {};
 
 try {
 	db.conectarBD();
@@ -17,17 +17,9 @@ try {
 }
 if (okdb) {
 	
-		String query="SELECT * FROM TIPOS_JUGUETES;";
+		String query="SELECT I.ID_INTERCAMBIO,I.FECHA_ENTREGA FROM INTERCAMBIOS I JOIN USUARIOS U ON (I.ID_USUARIO_1=U.ID_USUARIO) WHERE CORREO='"+session.getAttribute("attributo2")+"' AND FECHA_RECOGIDA IS NULL;";
 		tablares = db.resConsultaSelectA3(query);
 	if (tablares != null) {
-		resultado = "<table style='border: 1px solid black; margin: auto; border-collapse: collapse;>";
-		for (int i=0; i<tablares.length;i++) { //g es una variable tipo grupo que va recorriendo la lista
-			resultado += "<tr style='border: 1px solid black;'>";
-			resultado += "<td style='border: 1px solid black;'>" + tablares[i][0] + "</td>";
-			resultado += "<td style='border: 1px solid black;'>" + tablares[i][1] + "</td>";
-			resultado += "</tr>";
-		}
-		resultado += "</table>";
 	}
 	else{
 		resultado = "<div style='color: darkred; font-weight: bold;'>NO HAY NINGUN TIPO DE JUGUETE</div>";
@@ -48,8 +40,8 @@ else {
 <script type="text/javascript">
 function compruebayenvia() {
 	datos=document.iniciosesion;
-	if (datos.tipo.value == '' ||
-			datos.nombre.value == ''|| datos.estado.value==''||datos.correo.value=='')
+	if (datos.idCambio.value == '' ||
+			datos.usuario2.value == ''|| datos.nombrePedir.value==''||datos.idLugar.value==''||datos.fecha.value==''||datos.hora.value=='')
 		alert ('¡Tiene que rellenar todos los campos!');
 	else datos.submit();
 }
@@ -86,25 +78,23 @@ function compruebaalfan(campo, evento) {
 </head>
 <body style="background-image: url(images/fondoJuguetes.jpg);">
 
-<h1 style="color: pink;">Agregar Juguete</h1>
-<form action="./AgregarJuguete" method="post" name="iniciosesion" id="iniciosesion">
+<h1 style="color: pink;">TERMINAR INTERCAMBIO</h1>
+<hr>
+<form action="./HacerIntercambio" method="post" name="iniciosesion" id="iniciosesion">
 <table style="text-align: left; border: none;">
 <tr><td>
 <input type="hidden" name="varoculta" value="secreto"/>
-</td></tr><tr><td>Tipo de juguete:
-	</td><td><select name="tipo">
-		<%
+</td></tr><tr><td>Seleccione Intercambio:
+</td><td><select name="idIntercambio"><%
 for (int i=0; i<tablares.length;i++){
 	%><option value="<%=tablares[i][0]%>"><%=tablares[i][1]%></option><%
 }
 %>
 	</select>
-</td></tr><tr><td>Nombre del Juguete:
-	</td><td><input type="text" name="nombre" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
-</td></tr><tr><td>Estado:
-	</td><td><input type="text" name="estado" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
-</td></tr><tr><td>Correo:
-</td><td><input type="text" name="correo" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
+</td></tr><tr><td>Fecha de Entrega:
+</td><td><input type="date" name="fecha" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
+</td></tr><tr><td>Hora de Entrega:
+</td><td><input type="time" name="hora" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
 </td></tr><tr><td>
 	</td><td style="text-align: center;">
 		<input type="button" name="send" value="Enviar" onclick="compruebayenvia();"/>

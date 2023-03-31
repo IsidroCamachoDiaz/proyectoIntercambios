@@ -6,6 +6,7 @@
 beanDB db = new beanDB();
 boolean okdb = false;
 String resultado = "";
+String [][] tablares={};
 
 try {
 	db.conectarBD();
@@ -17,7 +18,7 @@ try {
 if (okdb) {
 	
 		String query="SELECT T.NOMBRE,U.NOMBRE,U.ID_USUARIO,JD.NOMBRE,J.ESTADO FROM JuguetesDisponibles JD JOIN JUGUETES J ON (JD.ID_JUGUETE=J.ID_JUGUETE) JOIN USUARIOS U ON (J.ID_USUARIO=U.ID_USUARIO) JOIN TIPOS_JUGUETES T ON (J.ID_TIPO_JUGUETE=T.ID_TIPO);";
-		String [][] tablares = db.resConsultaSelectA3(query);
+		tablares = db.resConsultaSelectA3(query);
 	if (tablares != null) {
 		resultado = "<table style='border: 1px solid black; margin: auto; border-collapse: collapse;> <tr style='border: 1px solid black;'><td style='border: 1px solid black;'>Tipo de Juguete</td><td style='border: 1px solid black;'>Nombre de Usuario</td><td style='border: 1px solid black;'>ID de Usuario</td><td style='border: 1px solid black;'>Nombre de Juguete</td><td style='border: 1px solid black;'>Estado del Juguete</td></tr>";
 		for (int i=0; i<tablares.length;i++) { //g es una variable tipo grupo que va recorriendo la lista
@@ -41,6 +42,7 @@ else {
 }
 //----------------------------------------------------------------------------------------------------------------
 String resultado2="";
+String [][] tablares2={};
 try {
 	db.conectarBD();
 	okdb = true;
@@ -51,7 +53,7 @@ try {
 if (okdb) {
 	
 		String query2="SELECT * FROM PUNTOS_INTERCAMBIO;";
-		String [][] tablares2 = db.resConsultaSelectA3(query2);
+		tablares2 = db.resConsultaSelectA3(query2);
 	if (tablares2 != null) {
 		resultado2 = "<table style='border: 1px solid black; margin: auto; border-collapse: collapse;>  <tr style='border: 1px solid black;'><td style='border: 1px solid black;'>ID del Lugar</td><td style='border: 1px solid black;'>Ciudad</td><td style='border: 1px solid black;'>Barrio</td></tr>";
 		for (int i=0; i<tablares2.length;i++) { //g es una variable tipo grupo que va recorriendo la lista
@@ -130,14 +132,32 @@ function compruebaalfan(campo, evento) {
 <table style="text-align: left; border: none;">
 <tr><td>
 <input type="hidden" name="varoculta" value="secreto"/>
-ID del Usuario:
-	</td><td><input type="text" name="usuario2" onkeypress="return compruebaalfan(this,event);" maxlength="30" value="" class="inputgris"/>
+Usuario:
+	</td><td><select name="usuario2">
+<%
+for (int i=0; i<tablares.length;i++){
+	%><option value="<%=tablares[i][2]%>"><%=tablares[i][1]%></option><%
+}
+%>
+</select>
 </td></tr><tr><td>Nombre del Juguete a querer:
-	</td><td><input type="text" name="nombrePedir" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
+	</td><td><select name="idLugar">
+<%
+for (int i=0; i<tablares.length;i++){
+	%><option value="<%=tablares[i][3]%>"><%=tablares[i][3]%></option><%
+}
+%>
+</select>
 </td></tr><tr><td>ID del Juguete suyo del intercambio:
 	</td><td><input type="text" name="idCambio" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
-</td></tr><tr><td>ID Del Lugar de Intercambio:
-</td><td><input type="text" name="idLugar" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
+</td></tr><tr><td>Lugar de Intercambio:
+</td><td><select name="idLugar">
+<%
+for (int i=0; i<tablares2.length;i++){
+	%><option value="<%=tablares2[i][0]%>"><%=tablares2[i][2]%></option><%
+}
+%>
+</select>
 </td></tr><tr><td>Fecha de Entrega:
 </td><td><input type="date" name="fecha" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
 </td></tr><tr><td>Hora de Entrega:

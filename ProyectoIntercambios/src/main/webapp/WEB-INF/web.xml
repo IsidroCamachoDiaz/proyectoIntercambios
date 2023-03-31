@@ -54,6 +54,19 @@
 		<servlet-class>mipk.BorrarUsuario</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<description>
+		</description>
+		<display-name>TerminarIntercambio</display-name>
+		<servlet-name>TerminarIntercambio</servlet-name>
+		<servlet-class>mipk.TerminarIntercambio</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>TerminarIntercambio</servlet-name>
+		<url-pattern>/TerminarIntercambio</url-pattern>
+	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>BorrarUsuario</servlet-name>
 		<url-pattern>/BorrarUsuario</url-pattern>

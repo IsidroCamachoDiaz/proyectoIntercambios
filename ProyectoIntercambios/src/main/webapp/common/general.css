@@ -10,13 +10,12 @@ form {
 	display: inline-block;
 }
 
-a {
+a{
 	color: rgb(255, 128, 255);
 	text-decoration: none;
 }
 
 h1 {
-	color: white;
 	font-family: Helvetica Neue;
 	font-weight: 100;
 	font-size: 48px;
@@ -39,4 +38,7 @@ h1 {
 }
 #hh{
 	text-align: center;
+}
+#salir{
+	text-align:center;
 }

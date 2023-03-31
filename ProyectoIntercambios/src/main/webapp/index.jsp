@@ -115,6 +115,7 @@ $("#password").focusin(function () {
     <button class="btn">Login </button>
   </div>
 </form>
-<a href="CreacionUsuario.jsp" style="color: pink; text-decoration: none;">Crear una cuenta</a>
+<button type="button" class="btn btn-primary"><a href="CreacionUsuario.jsp" style="color: white; text-decoration: none;">Crear una cuenta</a></button>
+
 </body>
 </html>
