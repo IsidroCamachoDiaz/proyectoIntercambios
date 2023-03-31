@@ -31,15 +31,26 @@ if(usuario.equals("admin")||usuario.equals("prueba"))
 <div class="container-fluid">
 <div class="row">
 	<div class="col-sm-12">
+	 <div class="row">
+    <div class="col-sm-6">
 	<h1>Bienvenido <%=usuario %></h1>
 	Sesión iniciada como <%=rol %>
+	</div>
+	<div class="col-sm-6" style="color: #EE2DD4;">
+	<br><br>
+	<a href="ModificarCuenta.jsp" style="color: #EE2DD4;">Modificar Perfil</a><br/>
+	</div>
+	</div>
 	<hr/>
+
 	</div>
     <div class="col-sm-6" style="color: #EE2DD4;">
       	<a href="verdatos.jsp" style="color: #EE2DD4;">Acceder a tus Juguetes</a><br/>
 		<a href="disponibles.jsp" style="color: #EE2DD4;">Acceder a los Juguetes Disponibles</a><br>
-		<a href="IntercambiosPropios.jsp" style="color: #EE2DD4;">Acceder a los Intercambios Pendientes</a>
-    </div>
+		<a href="IntercambiosPropios.jsp" style="color: #EE2DD4;">Acceder a los Intercambios Pendientes</a><br>
+		<a href="IntercambiosTerminados.jsp" style="color: #EE2DD4;">Acceder a los Intercambios Terminados</a>
+		</div>
+
     <div class="col-sm-6">
       	<%if(rol.equals("Administrador")){
 		%><a href="AgregarPuntos.jsp" style="color: #EE2DD4;">Agregar Puntos De Intercambio</a>

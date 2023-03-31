@@ -24,7 +24,7 @@ try {
 }
 if (okdb) {
 	
-		String query="SELECT J.NOMBRE,J.ESTADO FROM JUGUETES J JOIN USUARIOS U ON (J.ID_USUARIO=U.ID_USUARIO) WHERE U.CORREO='"+session.getAttribute("attributo2")+"';";
+		String query="SELECT J.NOMBRE,J.ESTADO,J.ID_JUGUETE FROM JUGUETES J JOIN USUARIOS U ON (J.ID_USUARIO=U.ID_USUARIO) WHERE U.CORREO='"+session.getAttribute("attributo2")+"';";
 		String [][] tablares = db.resConsultaSelectA3(query);
 	if (tablares != null) {
 		resultado = "<table style='border: 1px solid black; margin: auto; border-collapse: collapse;>";
@@ -32,6 +32,7 @@ if (okdb) {
 			resultado += "<tr style='border: 1px solid black;'>";
 			resultado += "<td style='border: 1px solid black;'>" + tablares[i][0] + "</td>";
 			resultado += "<td style='border: 1px solid black;'>" + tablares[i][1] + "</td>";
+			resultado += "<td style='border: 1px solid black;'>" + tablares[i][2] + "</td>";
 			resultado += "</tr>";
 		}
 		resultado += "</table>";

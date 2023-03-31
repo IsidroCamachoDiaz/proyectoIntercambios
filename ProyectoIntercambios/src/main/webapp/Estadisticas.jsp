@@ -15,6 +15,7 @@ beanDB db = new beanDB();
 boolean okdb = false;
 String resultado = "";
 String resultado2 = "";
+String resultado3="";
 
 try {
 	db.conectarBD();
@@ -53,6 +54,20 @@ if (okdb) {
 		
 	}
 	
+	query="SELECT * FROM PuntosMasIntercambios LIMIT 10;";
+	tablares = db.resConsultaSelectA3(query);
+	if (tablares != null) {
+		resultado3 = "<table style='border: 1px solid black; margin: auto; border-collapse: collapse;>";
+		for (int i=0; i<tablares.length;i++) { //g es una variable tipo grupo que va recorriendo la lista
+			resultado3 += "<tr style='border: 1px solid black;'>";
+			resultado3 += "<td style='border: 1px solid black;'>" + tablares[i][0] + "</td>";
+			resultado3 += "<td style='border: 1px solid black;'>" + tablares[i][1] + "</td>";
+			resultado3 += "</tr>";
+		}
+		resultado3 += "</table>";
+		
+	}
+	
 	
 	
 	db.desconectarBD();
@@ -79,6 +94,8 @@ else {
 <h3>Usuarios Con Mas Intercambios</h3>
 <%=resultado %>
 <h3>Usuarios Con Mas Juguetes</h3>
+<%=resultado2 %>
+<h3>Lugares Con Mas Intercambios</h3>
 <%=resultado2 %>
 <div id="contenedor1">
 </div>

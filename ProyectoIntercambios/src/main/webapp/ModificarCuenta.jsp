@@ -1,35 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
-<%@page import="mipk.beanDB"%>
-<% 
-beanDB db = new beanDB();
-boolean okdb = false;
-String resultado = "";
-String [][] tablares= {};
-
-try {
-	db.conectarBD();
-	okdb = true;
-} catch (Exception e) {
-	okdb = false;
-	//e.printStackTrace();
-}
-if (okdb) {
-	
-		String query="SELECT I.ID_INTERCAMBIO,I.FECHA_ENTREGA FROM INTERCAMBIOS I JOIN USUARIOS U ON (I.ID_USUARIO_1=U.ID_USUARIO) WHERE CORREO='"+session.getAttribute("attributo2")+"' AND FECHA_RECOGIDA IS NULL;";
-		tablares = db.resConsultaSelectA3(query);
-	if (tablares != null) {
-	}
-	else{
-		resultado = "<div style='color: darkred; font-weight: bold;'>NO HAY NINGUN TIPO DE JUGUETE</div>";
-	}
-	db.desconectarBD();
-}
-else {
-	resultado = "<div style='color: darkred; font-weight: bold;'>ERROR: No se pudo conectar con la BBDD</div>";
-}
-%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -40,8 +11,8 @@ else {
 <script type="text/javascript">
 function compruebayenvia() {
 	datos=document.iniciosesion;
-	if (datos.idCambio.value == '' ||
-			datos.usuario2.value == ''|| datos.nombrePedir.value==''||datos.idLugar.value==''||datos.fecha.value==''||datos.hora.value=='')
+	if (datos.correo.value == '' ||
+			datos.contrasenia.value == ''|| datos.nombre.value==''||datos.apellidos.value==''||datos.ciudad.value=='')
 		alert ('¡Tiene que rellenar todos los campos!');
 	else datos.submit();
 }
@@ -78,24 +49,19 @@ function compruebaalfan(campo, evento) {
 </head>
 <body style="background-image: url(images/fondoJuguetes.jpg);">
 
-<h1 style="color: pink;">TERMINAR INTERCAMBIO</h1>
-<hr>
-<form action="./HacerIntercambio" method="post" name="iniciosesion" id="iniciosesion">
+<h1 style="color: pink;">Modificar la Cuenta</h1>
+<form action="./CreacionUsuarios" method="post" name="iniciosesion" id="iniciosesion">
 <table style="text-align: left; border: none;">
 <tr><td>
 <input type="hidden" name="varoculta" value="secreto"/>
-</td></tr><tr><td>Seleccione Intercambio:
-</td><td><select name="idIntercambio">
-<%
-for (int i=0; i<tablares.length;i++){
-	%><option value="<%=tablares[i][0]%>"><%=tablares[i][1]%></option><%
-}
-%>
-	</select>
-</td></tr><tr><td>Fecha de Entrega:
-</td><td><input type="date" name="fecha" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
-</td></tr><tr><td>Hora de Entrega:
-</td><td><input type="time" name="hora" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
+Contraseña:
+	</td><td><input type="password" name="contrasenia" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
+</td></tr><tr><td>Nombre:
+	</td><td><input type="text" name="nombre" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
+</td></tr><tr><td>Apellidos:
+	</td><td><input type="text" name="apellidos" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
+</td></tr><tr><td>Ciudad:
+</td><td><input type="text" name="ciudad" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
 </td></tr><tr><td>
 	</td><td style="text-align: center;">
 		<input type="button" name="send" value="Enviar" onclick="compruebayenvia();"/>

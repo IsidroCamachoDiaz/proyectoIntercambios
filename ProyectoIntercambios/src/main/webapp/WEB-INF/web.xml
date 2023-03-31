@@ -62,6 +62,19 @@
 		<servlet-class>mipk.TerminarIntercambio</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<description>
+		</description>
+		<display-name>ModificarCuenta</display-name>
+		<servlet-name>ModificarCuenta</servlet-name>
+		<servlet-class>mipk.ModificarCuenta</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ModificarCuenta</servlet-name>
+		<url-pattern>/ModificarCuenta</url-pattern>
+	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>TerminarIntercambio</servlet-name>
 		<url-pattern>/TerminarIntercambio</url-pattern>

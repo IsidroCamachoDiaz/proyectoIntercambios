@@ -119,15 +119,23 @@ function compruebaalfan(campo, evento) {
 	}
 }
 </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body style="background-image: url(images/fondoJuguetes.jpg);">
 
-<h1 style="color: pink;">HACER INTERCAMBIO</h1>
-<h3 style="color: pink;">DATOS DE LOS JUGUETES:</h3>
-<%=resultado %>
-<hr>
-<h3 style="color: pink;">DATOS DE LOS LUGARES DE INTERCAMBIO:</h3>
-<%=resultado2 %>
+<h1 style="color: pink; text-align:center;">HACER INTERCAMBIO</h1>
+<div class="container-fluid">
+	<div class="row text-center">
+	<div class="col-sm-6">
+		<h3 style="color: pink;">DATOS DE LOS JUGUETES:</h3>
+		<%=resultado %>
+	</div>
+	<div class="col-sm-6">
+		<h3 style="color: pink;">DATOS DE LOS LUGARES DE INTERCAMBIO:</h3>
+		<%=resultado2 %>
+	</div>
+	<div class="col-sm-12">
+		<hr>
 <form action="./HacerIntercambio" method="post" name="iniciosesion" id="iniciosesion">
 <table style="text-align: left; border: none;">
 <tr><td>
@@ -141,7 +149,7 @@ for (int i=0; i<tablares.length;i++){
 %>
 </select>
 </td></tr><tr><td>Nombre del Juguete a querer:
-	</td><td><select name="idLugar">
+	</td><td><select name="nombrePedir">
 <%
 for (int i=0; i<tablares.length;i++){
 	%><option value="<%=tablares[i][3]%>"><%=tablares[i][3]%></option><%
@@ -167,5 +175,8 @@ for (int i=0; i<tablares2.length;i++){
 		<input type="button" name="send" value="Enviar" onclick="compruebayenvia();"/>
 </td></tr></table>
 </form>
+		</div>
+	</div>
+</div>
 </body>
 </html>
