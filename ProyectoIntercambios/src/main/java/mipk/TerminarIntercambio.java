@@ -51,7 +51,7 @@ public class TerminarIntercambio extends HttpServlet {
 		
 		if(!idIntercambio.equals("")&&!fecha.equals("")&&!hora.equals("")) {
 			fecha=fecha+" "+hora+":00";
-			String query2= "UPDATE INTERCAMBIO SET FECHA_RECOGIDA ='"+fecha+"' WHERE ID_INTERCAMBIO="+idIntercambio+";";
+			String query2= "UPDATE INTERCAMBIOS SET FECHA_RECOGIDA='"+fecha+"' WHERE ID_INTERCAMBIO="+idIntercambio+";";
 			ok=true;
 			try {
 			db.conectarBD();

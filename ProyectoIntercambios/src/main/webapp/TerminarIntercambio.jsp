@@ -40,8 +40,7 @@ else {
 <script type="text/javascript">
 function compruebayenvia() {
 	datos=document.iniciosesion;
-	if (datos.idCambio.value == '' ||
-			datos.usuario2.value == ''|| datos.nombrePedir.value==''||datos.idLugar.value==''||datos.fecha.value==''||datos.hora.value=='')
+	if (datos.fecha.value == '' ||datos.hora.value == '')
 		alert ('¡Tiene que rellenar todos los campos!');
 	else datos.submit();
 }
