@@ -11,8 +11,7 @@
 <script type="text/javascript">
 function compruebayenvia() {
 	datos=document.iniciosesion;
-	if (datos.correo.value == '' ||
-			datos.contrasenia.value == ''|| datos.nombre.value==''||datos.apellidos.value==''||datos.ciudad.value=='')
+	if (datos.contrasenia.value == '' ||datos.nombre.value == ''|| datos.apellidos.value==''||datos.ciudad.value=='')
 		alert ('¡Tiene que rellenar todos los campos!');
 	else datos.submit();
 }
@@ -50,7 +49,7 @@ function compruebaalfan(campo, evento) {
 <body style="background-image: url(images/fondoJuguetes.jpg);">
 
 <h1 style="color: pink;">Modificar la Cuenta</h1>
-<form action="./CreacionUsuarios" method="post" name="iniciosesion" id="iniciosesion">
+<form action="./ModificarCuenta" method="post" name="iniciosesion" id="iniciosesion">
 <table style="text-align: left; border: none;">
 <tr><td>
 <input type="hidden" name="varoculta" value="secreto"/>

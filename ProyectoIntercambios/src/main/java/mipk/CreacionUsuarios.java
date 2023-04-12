@@ -62,7 +62,7 @@ public class CreacionUsuarios extends HttpServlet {
 			}
 	}
 		db.desconectarBD();
-		if (ok) response.sendRedirect("bienvenido.jsp");
+		if (ok) response.sendRedirect("index.jsp");
 		else response.sendRedirect("InicioInvalido.html");
 	
 	}

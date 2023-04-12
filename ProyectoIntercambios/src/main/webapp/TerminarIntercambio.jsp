@@ -79,7 +79,7 @@ function compruebaalfan(campo, evento) {
 
 <h1 style="color: pink;">TERMINAR INTERCAMBIO</h1>
 <hr>
-<form action="./HacerIntercambio" method="post" name="iniciosesion" id="iniciosesion">
+<form action="./TerminarIntercambio" method="post" name="iniciosesion" id="iniciosesion">
 <table style="text-align: left; border: none;">
 <tr><td>
 <input type="hidden" name="varoculta" value="secreto"/>

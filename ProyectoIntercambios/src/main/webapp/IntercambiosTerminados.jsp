@@ -25,7 +25,7 @@ try {
 }
 if (okdb) {
 	
-		String query="SELECT J.NOMBRE,J.ESTADO,I.FECHA_ENTREGA,I.FECHA_RECOGIDA FROM INTERCAMBIOS I JOIN USUARIOS U ON (I.ID_USUARIO_1=U.ID_USUARIO) JOIN JUGUETES J ON (I.ID_JUGUETE_USUARIO_1=J.ID_JUGUETE) WHERE CORREO='"+session.getAttribute("attributo2")+"' AND FECHA_RECOGIDA NOT IS NULL;";
+		String query="SELECT J.NOMBRE,J.ESTADO,I.FECHA_ENTREGA,I.FECHA_RECOGIDA FROM INTERCAMBIOS I JOIN USUARIOS U ON (I.ID_USUARIO_1=U.ID_USUARIO) JOIN JUGUETES J ON (I.ID_JUGUETE_USUARIO_1=J.ID_JUGUETE) WHERE CORREO='"+session.getAttribute("attributo2")+"' AND FECHA_RECOGIDA IS NOT NULL;";
 		String [][] tablares = db.resConsultaSelectA3(query);
 	if (tablares != null) {
 		resultado = "<table style='border: 1px solid black; margin: auto; border-collapse: collapse;>";

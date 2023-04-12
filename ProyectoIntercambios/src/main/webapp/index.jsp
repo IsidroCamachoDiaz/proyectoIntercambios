@@ -7,7 +7,7 @@
 <title>Mi Primer Formulario</title>
 
 <link rel="stylesheet" href="common/sesion.css">
-
+<script src="script/sesion.js"></script>
 <script type="text/javascript">
 function compruebayenvia() {
 	datos=document.iniciosesion;
@@ -45,35 +45,6 @@ function compruebaalfan(campo, evento) {
 		return true;
 	}
 }
-
-$("#password").focusin(function () {
-	  $("form").addClass("up");
-	});
-	$("#password").focusout(function () {
-	  $("form").removeClass("up");
-	});
-
-	// Panda Eye move
-	$(document).on("mousemove", function (event) {
-	  var dw = $(document).width() / 15;
-	  var dh = $(document).height() / 15;
-	  var x = event.pageX / dw;
-	  var y = event.pageY / dh;
-	  $(".eye-ball").css({
-	    width: x,
-	    height: y
-	  });
-	});
-
-	// validation
-
-	$(".btn").click(function () {
-	  $("form").addClass("wrong-entry");
-	  setTimeout(function () {
-	    $("form").removeClass("wrong-entry");
-	  }, 3000);
-	});
-
 </script>
 </head>
 <body style="background-image: url(images/fondoJuguetes.jpg);">
@@ -115,7 +86,7 @@ $("#password").focusin(function () {
     <button class="btn">Login </button>
   </div>
 </form>
-<button type="button" class="btn btn-primary"><a href="CreacionUsuario.jsp" style="color: white; text-decoration: none;">Crear una cuenta</a></button>
+<button type="button" class="btn btn-primary"><a href="CreacionUsuario2.jsp" style="color: white; text-decoration: none;">Crear una cuenta</a></button>
 
 </body>
 </html>
