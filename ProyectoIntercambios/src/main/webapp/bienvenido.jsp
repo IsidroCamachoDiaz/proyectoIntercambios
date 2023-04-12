@@ -44,22 +44,115 @@ if(usuario.equals("admin")||usuario.equals("prueba"))
 	<hr/>
 
 	</div>
-    <div class="col-sm-6" style="color: #EE2DD4;">
-      	<a href="verdatos.jsp" style="color: #EE2DD4;">Acceder a tus Juguetes</a><br/>
-		<a href="disponibles.jsp" style="color: #EE2DD4;">Acceder a los Juguetes Disponibles</a><br>
-		<a href="IntercambiosPropios.jsp" style="color: #EE2DD4;">Acceder a los Intercambios Pendientes</a><br>
-		<a href="IntercambiosTerminados.jsp" style="color: #EE2DD4;">Acceder a los Intercambios Terminados</a>
-		</div>
+	
+	<div class="col-12">
+						<div class="row">
+						<div class="col-md-4 col-sm-6" >
+							<div class="card espacio">
+								<img class="card-img-top" src="images/juguete1.jpg">
+								<div class=" card-body">
+									<p class="card-text cen1v2" style="text-align: center;">Mis Juguetes</p>
+									<p class="card-text"><strong>Acceder a mis Juguetes</strong></p>
+									<div class="cen1"  style="text-align: center;">
+										<a class="btn btn-dark" href="verdatos.jsp">Juguetes</a>
+									</div>
+								</div>
+							</div>
+						</div>
 
-    <div class="col-sm-6">
+						<div class="col-md-4 col-sm-6">
+							<div class="card espacio">
+								<img class="card-img-top" src="canales.jpg">
+								<div class=" card-body">
+									<p class="card-text cen1v2" style="text-align: center;">Juguetes Disponibles</p>
+									<p class="card-text"><strong>Juguetes disponibles para hacer intercambio</strong></p>
+									<div class="cen1"  style="text-align: center;">
+										<a class="btn btn-dark" href="disponibles.jsp">Disponibles</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-sm-6">
+							<div class="card espacio">
+								<img class="card-img-top" src="resultados.jpg">
+								<div class=" card-body">
+									<p class="card-text cen1v2" style="text-align: center;">Intercambios Pendientes</p>
+									<p class="card-text"><strong>Tus intercambios con fecha pendiente</strong></p>
+									<div class="cen1"  style="text-align: center;">
+										<a class="btn btn-dark" href="IntercambiosPropios.jsp">Pendientes</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-sm-6">
+							<div class="card espacio">
+								<img class="card-img-top" src="debate.jpg">
+								<div class=" card-body">
+									<p class="card-text cen1v2" style="text-align: center;">Intercambios Terminados</p>
+									<p class="card-text"><strong>Intercambios que ya has terminado</strong></p>
+									<div class="cen1"  style="text-align: center;">
+										<a class="btn btn-dark" href="IntercambiosTerminados.jsp">Terminado</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
       	<%if(rol.equals("Administrador")){
-		%><a href="AgregarPuntos.jsp" style="color: #EE2DD4;">Agregar Puntos De Intercambio</a>
-		<br><a href="AgregarTipo.jsp" style="color: #EE2DD4;">Agregar Tipos de Juguetes</a>
-		<br><a href="BorrarUsuario.jsp" style="color: #EE2DD4;">Borrar Usuarios</a>
-		<br><a href="Estadisticas.jsp" style="color: #EE2DD4;">Estadisticas</a>
+		%>
+		<div class="col-md-4 col-sm-6">
+							<div class="card espacio">
+								<img class="card-img-top" src="debate.jpg">
+								<div class=" card-body">
+									<p class="card-text cen1v2" style="text-align: center;">Agregar Puntos</p>
+									<p class="card-text"><strong>Agregar Puntos Intercambios</strong></p>
+									<div class="cen1"  style="text-align: center;">
+										<a class="btn btn-dark" href="AgregarPuntos.jsp">Agregar Puntos</a>
+									</div>
+								</div>
+							</div>
+						</div>
+		<div class="col-md-4 col-sm-6">
+							<div class="card espacio">
+								<img class="card-img-top" src="debate.jpg">
+								<div class=" card-body">
+									<p class="card-text cen1v2" style="text-align: center;">Agregar Tipos</p>
+									<p class="card-text"><strong>Agregar Tipos de Juguetes</strong></p>
+									<div class="cen1"  style="text-align: center;">
+										<a class="btn btn-dark" href="AgregarTipo.jsp">Agregar Tipos</a>
+									</div>
+								</div>
+							</div>
+						</div>
+		<div class="col-md-4 col-sm-6">
+							<div class="card espacio">
+								<img class="card-img-top" src="debate.jpg">
+								<div class=" card-body">
+									<p class="card-text cen1v2" style="text-align: center;">Borrar Usuario</p>
+									<p class="card-text"><strong>Borrar usuarios</strong></p>
+									<div class="cen1"  style="text-align: center;">
+										<a class="btn btn-dark" href="BorrarUsuario.jsp">Borrar Usuarios</a>
+									</div>
+								</div>
+							</div>
+						</div>
+		<div class="col-md-4 col-sm-6">
+							<div class="card espacio">
+								<img class="card-img-top" src="debate.jpg">
+								<div class=" card-body">
+									<p class="card-text cen1v2" style="text-align: center;">Estadisticas</p>
+									<p class="card-text"><strong>Estadisticas generales</strong></p>
+									<div class="cen1"  style="text-align: center;">
+										<a class="btn btn-dark" href="Estadisticas.jsp">Estadisticas</a>
+									</div>
+								</div>
+							</div>
+						</div>
 	<%}
 	%>
-    </div>
+    	</div>
+   </div>
 </div>
     <div class="row text-center">
     <div class="col-sm-12">

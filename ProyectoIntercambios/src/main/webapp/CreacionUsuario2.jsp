@@ -47,13 +47,7 @@ function compruebaalfan(campo, evento) {
 	}
 }
 </script>
-<!-- jQuery y plugin HSIMP -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/hsimp.jquery.spa.js"></script>
-<!-- Custom jQuery -->
-<script src="script/contrasenia.js"></script>
-<!-- HSIMP CSS-->
-<link href="css/hsimp.jquery.css" rel="stylesheet">
+<link rel="stylesheet" href="hsimp.jquery.css">
 </head>
 <body style="background-image: url(images/fondoJuguetes.jpg);">
 <div class='box'>
@@ -72,9 +66,25 @@ function compruebaalfan(campo, evento) {
         </p>
       	  <p class='field'>
           <label for='pass'>CONTRASEÑA</label>
-          <input type='password' id='pass' name='contrasenia' title='Password' id="hsimp-password" />
+          <input type='password' id='pass' name='contrasenia' title='Password'/>
           <span id='valida' class='i i-close'></span>
         </p>
+        <!-- Contrasenia -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+        <script src="hsimp.jquery.min.js"></script>
+        <script>
+            jQuery(function ($) {
+                "use strict";
+
+                $("#pass").hsimp({
+                    calculationsPerSecond: 10e9, // 10 billion
+                    good: 31557600e9, // 1 billion years
+                    ok: 31557600e2,  // 100 years
+                });
+            });
+        </script>
+		
         <p class='field'>
           <label for='user'>NOMBRE</label>
           <input type='text' id='user' name='nombre' title='Username' />
@@ -98,7 +108,5 @@ function compruebaalfan(campo, evento) {
     </div>
   </div>
 </div>
- 
-  
 </body>
 </html>
