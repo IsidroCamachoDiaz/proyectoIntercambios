@@ -35,7 +35,7 @@ if (okdb) {
 			resultado += "<td style='border: 1px solid black;'>" + tablares[i][0] + "</td>";
 			resultado += "<td style='border: 1px solid black;'>" + tablares[i][1] + "</td>";
 			resultado += "<td style='border: 1px solid black;'>" + tablares[i][2] + "</td>";
-			resultado += "<td style='border: 1px solid black;'>FECHA RECOGIDA PENDIENTE</td>";
+			resultado += "<td style='border: 1px solid black; color: red;'>FECHA RECOGIDA PENDIENTE</td>";
 			resultado += "</tr>";
 		}
 		resultado += "</table>";
@@ -59,16 +59,16 @@ else {
 
 </head>
 <body style="background-image: url(images/fondo2.jpg);">
-<h1><%=session.getAttribute("attributo2") %> sus Juguetes:</h1>
+<h1><%=session.getAttribute("attributo2") %> sus Intercambios Actuales:</h1>
 <hr/>
 <p><a href="bienvenido.jsp">Página principal</a></p>
 <p><a href="HacerIntercambio.jsp">Hacer Intercambio</a></p>
+<%if(!resultado.equals("<div style='color: darkred; font-weight: bold;'>NO HAY NINGUN INTERCAMBIO EN PROCESO</div>)")){%>
+<p><a href="TerminarIntercambio.jsp">Terminar Intercambio</a></p>
+<%}%>
 <p><a href="cerrarsesion.jsp">Salir</a></p>
 <hr/>
 <%=resultado %>
 <div id="contenedor1">
 </div>
-<%if(!resultado.equals("<div style='color: darkred; font-weight: bold;'>NO HAY NINGUN INTERCAMBIO EN PROCESO</div>)")){%>
-<a href="TerminarIntercambio.jsp">Terminar Intercambio</a>
-<%}%>
 </body></html>

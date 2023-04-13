@@ -24,9 +24,8 @@ try {
 }
 if (okdb) {
 	
-		String query="SELECT * FROM JuguetesDisponibles;";
+		String query="SELECT J.NOMBRE,J.ESTADO,J.ID_JUGUETE FROM JUGUETES J JOIN USUARIOS U ON (J.ID_USUARIO=U.ID_USUARIO) WHERE U.CORREO='"+session.getAttribute("attributo2")+"';";
 		String [][] tablares = db.resConsultaSelectA3(query);
-
 %>
 <html>
 <head>
@@ -38,9 +37,10 @@ if (okdb) {
 <body style="background-image: url(images/fondo2.jpg);">
 <div class="col-12">
 			<div class="row">
-<div class=col-sm-12>
-<h1><%=session.getAttribute("attributo2") %> Estos son los Juguetes Disponibles:</h1>
-<hr/>
+				<div class=col-sm-12>
+				
+					<h1><%=session.getAttribute("attributo2") %> sus Juguetes:</h1>
+					<hr/>
 				<ul class="nav">
 					  <li class="nav-item">
 					    <a class="nav-link active" href="bienvenido.jsp" style="color: #EE2DD4;">Página principal</a>
@@ -49,11 +49,17 @@ if (okdb) {
 					    <a class="nav-link" href="HacerIntercambio.jsp" style="color: #EE2DD4;">Hacer Intercambio</a>
 					  </li>
 					  <li class="nav-item">
+					    <a class="nav-link" href="AgregarJuguete.jsp" style="color: #EE2DD4;">Agregar Juguete</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href="ModificarJuguete.jsp" style="color: #EE2DD4;">Modificar Juguete</a>
+					  </li>
+					  <li class="nav-item">
 					    <a class="nav-link" href="cerrarsesion.jsp" style="color: #EE2DD4;">Salir</a>
 					  </li>
-				</ul>	
-<hr/>
-</div>
+				</ul>		
+					<hr/>
+				</div>
 
 <%if (tablares != null) { 
 	for (int i=0;i<tablares.length;i++) {
@@ -61,10 +67,10 @@ if (okdb) {
 						<div class="col-md-4 col-sm-6" >
 							<div class="card espacio" style="background:pink;">
 								<div class=" card-body">
-									<p class="card-text cen1v2" style="text-align: center;"><%=tablares[i][1]%></p>
-									<p class="card-text"><strong>ID: <%=tablares[i][0]%></strong></p>
+									<p class="card-text cen1v2" style="text-align: center;"><%=tablares[i][0]%></p>
+									<p class="card-text"><strong>Estado: <%=tablares[i][1]%> ID: <%=tablares[i][2]%></strong></p>
 									<div class="cen1"  style="text-align: center;">
-										<a class="btn btn-light" href="HacerIntercambio.jsp">Intercambiar</a>
+										<a class="btn btn-light" href="HacerIntercambio.jsp">Intercambiar Juguete</a>
 									</div>
 								</div>
 							</div>
@@ -78,7 +84,7 @@ else {%>
 							<div class="card espacio" style="background:red;">
 								<div class=" card-body">
 									<p class="card-text cen1v2" style="text-align: center;"></p>
-									<p class="card-text" style="text-align: center;"><strong>No hay ningun juguete disponible</strong></p>
+									<p class="card-text" style="text-align: center;"><strong>No Tiene Ningun Juguete Registrado</strong></p>
 									<div class="cen1"  style="text-align: center;">
 										<a class="btn btn-light" href="AgregarJuguete.jsp">Agregar juguete</a>
 									</div>
@@ -100,10 +106,11 @@ else {%>
 								</div>
 							</div>
 						</div>
-<%} %>
+<%} %>						
+					</div>
+				</div>
 
 
+<div id="contenedor1">
 </div>
-</div>
-
 </body></html>

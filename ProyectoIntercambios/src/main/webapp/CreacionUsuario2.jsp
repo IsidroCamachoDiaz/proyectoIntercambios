@@ -54,7 +54,7 @@ function compruebaalfan(campo, evento) {
   <div class='box-form'>
     <div class='box-login-tab'></div>
     <div class='box-login-title'>
-      <div class='i i-login'></div><h2>CREAR CUENTA</h2>
+      <h2 style="float: right;">CREAR CUENTA</h2>
     </div>
     <div class='box-login'>
       <div class='fieldset-body' id='login_form'>

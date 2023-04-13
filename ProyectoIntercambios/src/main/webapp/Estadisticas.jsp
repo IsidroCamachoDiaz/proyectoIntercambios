@@ -96,7 +96,7 @@ else {
 <h3>Usuarios Con Mas Juguetes</h3>
 <%=resultado2 %>
 <h3>Lugares Con Mas Intercambios</h3>
-<%=resultado2 %>
+<%=resultado3 %>
 <div id="contenedor1">
 </div>
 </body></html>

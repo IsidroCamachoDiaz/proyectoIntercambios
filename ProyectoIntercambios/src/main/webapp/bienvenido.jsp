@@ -34,11 +34,19 @@ if(usuario.equals("admin")||usuario.equals("prueba"))
 	 <div class="row">
     <div class="col-sm-6">
 	<h1>Bienvenido <%=usuario %></h1>
-	Sesión iniciada como <%=rol %>
+	Sesión iniciada como <strong><%=rol %></strong>
 	</div>
 	<div class="col-sm-6" style="color: #EE2DD4;">
 	<br><br>
-	<a href="ModificarCuenta.jsp" style="color: #EE2DD4;">Modificar Perfil</a><br/>
+	
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="ModificarCuenta.jsp" style="color: #EE2DD4;">Modificar Perfil</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="cerrarsesion.jsp" style="color: #EE2DD4;">Cerrar Sesion</a>
+  </li>
+</ul>
 
 	</div>
 	</div>
@@ -55,7 +63,7 @@ if(usuario.equals("admin")||usuario.equals("prueba"))
 									<p class="card-text cen1v2" style="text-align: center;">Mis Juguetes</p>
 									<p class="card-text"><strong>Acceder a mis Juguetes</strong></p>
 									<div class="cen1"  style="text-align: center;">
-										<a class="btn btn-light" href="verdatos.jsp">Juguetes</a>
+										<a class="btn btn-light" href="verdatos2.jsp">Juguetes</a>
 									</div>
 								</div>
 							</div>
@@ -76,7 +84,7 @@ if(usuario.equals("admin")||usuario.equals("prueba"))
 
 						<div class="col-md-4 col-sm-6">
 							<div class="card espacio" style="background:pink;">
-								<img class="card-img-top" src="images/intercambiosPendientes.png">
+								<img class="card-img-top" src="images/intercambiosPendientes.jpg">
 								<div class=" card-body">
 									<p class="card-text cen1v2" style="text-align: center;">Intercambios Pendientes</p>
 									<p class="card-text"><strong>Tus intercambios con fecha pendiente</strong></p>
@@ -157,7 +165,6 @@ if(usuario.equals("admin")||usuario.equals("prueba"))
 </div>
     <div class="row text-center">
     <div class="col-sm-12">
-    <br/><br/><a href="cerrarsesion.jsp" id="salida" style="color: #EE2DD4;">Salir</a>
      </div>
    </div>
 

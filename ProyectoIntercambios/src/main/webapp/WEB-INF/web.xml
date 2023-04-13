@@ -70,6 +70,19 @@
 		<servlet-class>mipk.ModificarCuenta</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<description>
+		</description>
+		<display-name>ModificarJuguete</display-name>
+		<servlet-name>ModificarJuguete</servlet-name>
+		<servlet-class>mipk.ModificarJuguete</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ModificarJuguete</servlet-name>
+		<url-pattern>/ModificarJuguete</url-pattern>
+	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>ModificarCuenta</servlet-name>
 		<url-pattern>/ModificarCuenta</url-pattern>
