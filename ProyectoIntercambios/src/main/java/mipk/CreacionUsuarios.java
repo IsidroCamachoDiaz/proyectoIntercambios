@@ -53,7 +53,7 @@ public class CreacionUsuarios extends HttpServlet {
 		
 		
 		if(!correo.equals("")&&!contrasenia.equals("")&&!nombre.equals("")&&!apellidos.equals("")&&!ciudad.equals("")) {
-			String query= "INSERT INTO USUARIOS (NOMBRE,APELLIDOS,CORREO,CONTRASEÑA,CIUDAD) VALUES ('"+nombre+"','"+apellidos+"','"+correo+"','"+contrasenia+"','"+ciudad+"');";
+			String query= "INSERT INTO USUARIOS (NOMBRE,APELLIDOS,CORREO,CONTRASEÑA,CIUDAD) VALUES ('"+nombre+"','"+apellidos+"','"+correo+"',AES_ENCRYPT('"+contrasenia+"','ClaveSeguridad22'),'"+ciudad+"');";
 			ok=true;
 			try {
 			db.conectarBD();

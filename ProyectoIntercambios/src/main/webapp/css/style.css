@@ -221,7 +221,7 @@ a:focus {
 
 .slider_section .carousel_btn-container .carousel-control-prev:hover,
 .slider_section .carousel_btn-container .carousel-control-next:hover {
-  background-color: #feb543;
+  background-color: #ff62f2da;
 }
 
 .slider_section .carousel_btn-container .carousel-control-prev {
@@ -264,7 +264,7 @@ a:focus {
 .slider_detail-box .btn-box a {
   display: inline-block;
   padding: 12px 40px;
-  background-color: #feb543;
+  background-color: #f35dc1;
   color: #f9fcfb;
   border-radius: 25px;
   -webkit-box-shadow: 0px 2px 7px 0px rgba(32, 50, 117, 0.26);
@@ -491,7 +491,7 @@ a:focus {
 
 .client_section .carousel-control-prev:hover,
 .client_section .carousel-control-next:hover {
-  background-color: #feb543;
+  background-color: #ff51a8;
 }
 
 .client_section .carousel-control-prev {

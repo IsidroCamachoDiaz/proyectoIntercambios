@@ -42,7 +42,7 @@ public class LoginAuthenticator extends HttpServlet {
 		boolean ok=false;
 		
 		
-		String query= "SELECT CORREO,CONTRASEÑA FROM USUARIOS;";
+		String query= "SELECT ID_USUARIO FROM USUARIOS WHERE CORREO='"+usuario+"' AND CONTRASEÑA=AES_ENCRYPT('"+pass+"','ClaveSeguridad22');";
 		String [][] tablares= {};
 		try {
 		db.conectarBD();
@@ -51,16 +51,13 @@ public class LoginAuthenticator extends HttpServlet {
 		}
 		
 		boolean incorrecto =true;
-		for(int o=0;o<tablares.length;o++) {
-			pwdvalida=tablares[o][1];
-			usuvalido=tablares[o][0];
-		if(usuario.equals(usuvalido) && pass.equals(pwdvalida)) {
+
+		if(tablares!=null) {
 			session.setAttribute("attributo2",usuario);
 			session.setAttribute("attributo1","1");
 			ok=true;
 			incorrecto=false;
 		}
-	}
 		db.desconectarBD();
 		if (ok) response.sendRedirect("bienvenido.jsp");
 		else response.sendRedirect("index.jsp");

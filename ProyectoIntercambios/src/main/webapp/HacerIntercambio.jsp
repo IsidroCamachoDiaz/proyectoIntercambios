@@ -73,6 +73,25 @@ if (okdb) {
 else {
 	resultado = "<div style='color: darkred; font-weight: bold;'>ERROR: No se pudo conectar con la BBDD</div>";
 }
+//----------------------------------------------------------------------------------------------------------------------
+String resultado3="";
+String [][] tablares3={};
+try {
+	db.conectarBD();
+	okdb = true;
+} catch (Exception e) {
+	okdb = false;
+	//e.printStackTrace();
+}
+if (okdb) {
+	
+		String query3="SELECT J.NOMBRE,ID_JUGUETE FROM JUGUETES J JOIN USUARIOS U ON (J.ID_USUARIO=U.ID_USUARIO) WHERE CORREO='"+session.getAttribute("attributo2")+"';";
+		tablares3 = db.resConsultaSelectA3(query3);
+	db.desconectarBD();
+}
+else {
+	resultado = "<div style='color: darkred; font-weight: bold;'>ERROR: No se pudo conectar con la BBDD</div>";
+}
 %>
 <html>
 <head>
@@ -157,7 +176,13 @@ for (int i=0; i<tablares.length;i++){
 %>
 </select>
 </td></tr><tr><td>ID del Juguete suyo del intercambio:
-	</td><td><input type="text" name="idCambio" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
+	</td><td><select name="idCambio">
+<%
+for (int i=0; i<tablares.length;i++){
+	%><option value="<%=tablares3[i][1]%>"><%=tablares3[i][0]%></option><%
+}
+%>
+</select>
 </td></tr><tr><td>Lugar de Intercambio:
 </td><td><select name="idLugar">
 <%
