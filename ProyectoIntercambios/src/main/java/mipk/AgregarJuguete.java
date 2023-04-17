@@ -43,7 +43,7 @@ public class AgregarJuguete extends HttpServlet {
 		String idTipo=request.getParameter("tipo");
 		String nombre=request.getParameter("nombre");
 		String estado=request.getParameter("estado");
-		String correo=request.getParameter("correo");
+		String correo=session.getAttribute("attributo2").toString();
 		boolean okdb=true;
 		try {
 			db.conectarBD();

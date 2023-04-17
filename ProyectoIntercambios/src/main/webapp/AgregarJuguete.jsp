@@ -49,7 +49,7 @@ else {
 function compruebayenvia() {
 	datos=document.iniciosesion;
 	if (datos.tipo.value == '' ||
-			datos.nombre.value == ''|| datos.estado.value==''||datos.correo.value=='')
+			datos.nombre.value == ''|| datos.estado.value=='')
 		alert ('¡Tiene que rellenar todos los campos!');
 	else datos.submit();
 }
@@ -103,8 +103,6 @@ for (int i=0; i<tablares.length;i++){
 	</td><td><input type="text" name="nombre" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
 </td></tr><tr><td>Estado:
 	</td><td><input type="text" name="estado" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
-</td></tr><tr><td>Correo:
-</td><td><input type="text" name="correo" onkeypress="return compruebaalfan(this,event);" maxlength="20" value="" class="inputgris"/>
 </td></tr><tr><td>
 	</td><td style="text-align: center;">
 		<input type="button" name="send" value="Enviar" onclick="compruebayenvia();"/>
